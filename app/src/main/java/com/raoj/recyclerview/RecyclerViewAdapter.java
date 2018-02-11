@@ -17,9 +17,10 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     private Context mContext;
-    private List<HomeItems> mDatas;//数据
+//    private List<HomeItems> mDatas;//数据
+    private List<String> mDatas;//数据
 
-    public RecyclerViewAdapter(Context context, List<HomeItems> datas) {//构造方法
+    public RecyclerViewAdapter(Context context, List<String> datas) {//构造方法
         mDatas = datas;
         mContext = context;
     }
@@ -37,8 +38,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
         params.height = (position % 2 == 0 ? 2 : 3) * 100 + 60;   //设置左右视图为不同的高度
         holder.itemView.setLayoutParams(params);//仅仅改变高度
-        HomeItems homeItems = mDatas.get(position);
-        holder.tvName.setText(homeItems.getSign());
+        String homeItems = mDatas.get(position);
+        holder.tvName.setText(homeItems);
         holder.itemView.setTag(position);
 //        holder.tvName.setText(homeItems.getPay());
 //        holder.tvName.setText(homeItems.getInquiry());
